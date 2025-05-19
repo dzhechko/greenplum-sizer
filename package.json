@@ -1,0 +1,18 @@
+{
+  "name": "greenplum-sizer",
+  "version": "1.0.0",
+  "description": "Калькулятор параметров хранилища Greenplum",
+  "scripts": {
+    "backend": "cd backend && docker-compose up",
+    "frontend": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.10"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
