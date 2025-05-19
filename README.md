@@ -26,7 +26,22 @@ A web-based Single Page Application (SPA) for configuring Greenplum storage para
 
 ## Running the Application
 
-### Backend
+### Using Docker (Recommended)
+
+The easiest way to run the entire application is with Docker Compose:
+
+```bash
+# In the root directory of the project
+docker-compose up
+```
+
+This will start both the frontend and backend containers. The application will be available at:
+- Frontend: http://localhost
+- Backend API: http://localhost:8001
+
+### Manual Setup
+
+#### Backend
 
 ```bash
 cd backend
@@ -35,7 +50,7 @@ docker-compose up
 
 The backend API will be available at http://localhost:8001
 
-### Frontend
+#### Frontend
 
 ```bash
 cd frontend
@@ -44,6 +59,35 @@ npm run dev
 ```
 
 The frontend development server will start at http://localhost:5173 (or another available port)
+
+## Deployment to Virtual Server
+
+The application can be deployed to a virtual server in the cloud using the provided deployment script:
+
+```bash
+# Make the script executable if needed
+chmod +x scripts/deploy.sh
+
+# Deploy to server (replace with your server IP)
+scripts/deploy.sh your_server_ip username ssh_port
+```
+
+The script will:
+1. Create required directories on the server
+2. Copy all necessary files
+3. Install Docker and Docker Compose if not present
+4. Build and run the containers
+5. Verify the application is running
+
+After deployment, the application will be available at:
+- Frontend: http://your_server_ip
+- Backend API: http://your_server_ip:8001
+
+To stop the application on the server:
+
+```bash
+ssh username@your_server_ip 'cd /opt/greenplum-sizer && docker-compose down'
+```
 
 ## Architecture
 
@@ -101,7 +145,22 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Запуск приложения
 
-### Бэкенд
+### Использование Docker (Рекомендуется)
+
+Самый простой способ запустить всё приложение - с помощью Docker Compose:
+
+```bash
+# В корневой директории проекта
+docker-compose up
+```
+
+Это запустит контейнеры фронтенда и бэкенда. Приложение будет доступно по адресам:
+- Фронтенд: http://localhost
+- API бэкенда: http://localhost:8001
+
+### Ручная настройка
+
+#### Бэкенд
 
 ```bash
 cd backend
@@ -110,7 +169,7 @@ docker-compose up
 
 API бэкенда будет доступно по адресу http://localhost:8001
 
-### Фронтенд
+#### Фронтенд
 
 ```bash
 cd frontend
@@ -119,6 +178,35 @@ npm run dev
 ```
 
 Сервер разработки фронтенда запустится по адресу http://localhost:5173 (или на другом доступном порту)
+
+## Развертывание на виртуальном сервере
+
+Приложение может быть развернуто на виртуальном сервере в облаке с помощью предоставленного скрипта развертывания:
+
+```bash
+# Сделать скрипт исполняемым при необходимости
+chmod +x scripts/deploy.sh
+
+# Деплой на сервер (замените на IP вашего сервера)
+scripts/deploy.sh ip_вашего_сервера имя_пользователя ssh_порт
+```
+
+Скрипт выполнит следующие действия:
+1. Создаст необходимые директории на сервере
+2. Скопирует все необходимые файлы
+3. Установит Docker и Docker Compose, если они отсутствуют
+4. Соберет и запустит контейнеры
+5. Проверит работу приложения
+
+После развертывания приложение будет доступно по адресам:
+- Фронтенд: http://ip_вашего_сервера
+- API бэкенда: http://ip_вашего_сервера:8001
+
+Для остановки приложения на сервере:
+
+```bash
+ssh имя_пользователя@ip_вашего_сервера 'cd /opt/greenplum-sizer && docker-compose down'
+```
 
 ## Архитектура
 

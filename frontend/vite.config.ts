@@ -11,6 +11,15 @@ export default defineConfig({
     },
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json']
   },
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8001',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
+  },
   build: {
     outDir: 'dist',
     rollupOptions: {

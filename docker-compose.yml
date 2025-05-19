@@ -1,0 +1,27 @@
+services:
+  backend:
+    build: ./backend
+    container_name: greenplum-sizer-backend
+    ports:
+      - "8001:8000"
+    environment:
+      - LOG_LEVEL=info
+      - ALLOW_ORIGINS=*
+    restart: unless-stopped
+    networks:
+      - greenplum-network
+
+  frontend:
+    build: ./frontend
+    container_name: greenplum-sizer-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - greenplum-network
+
+networks:
+  greenplum-network:
+    driver: bridge 
