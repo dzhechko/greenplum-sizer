@@ -1,0 +1,10 @@
+services:
+  mcp-server:
+    build: .
+    container_name: greenplum-sizer-mcp-server
+    ports:
+      - "8002:8000"
+    environment:
+      - LOG_LEVEL=info
+      - ALLOW_ORIGINS=*
+    restart: unless-stopped 

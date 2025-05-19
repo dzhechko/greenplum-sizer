@@ -5,7 +5,9 @@
   "scripts": {
     "backend": "cd backend && docker-compose up",
     "frontend": "cd frontend && npm run dev",
-    "dev": "concurrently \"npm run backend\" \"npm run frontend\""
+    "mcp-server": "cd mcp-server && docker-compose up",
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "dev-mcp": "concurrently \"npm run backend\" \"npm run frontend\" \"npm run mcp-server\""
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
