@@ -11,3 +11,6 @@
 - [x] Implement form components for user input
 - [x] Create visualization components for output data
 - [x] Implement API integration with backend
+- [x] Реализована мобильная адаптация интерфейса
+- [x] Оптимизированы компоненты для сенсорных устройств
+- [x] Улучшена верстка для различных размеров экранов

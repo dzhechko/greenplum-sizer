@@ -1,3 +1,5 @@
 # Active Context
 ## Current Focus
-Initializing project structure and planning for the Greenplum Sizer SPA. We need to define the architecture, select technologies, and establish the project development workflow.
+Разработано и оптимизировано мобильное представление веб-приложения Greenplum Sizer. Внесены улучшения в адаптивность интерфейса, добавлена поддержка сенсорных устройств, оптимизирован пользовательский опыт на экранах различных размеров.
+
+Текущий фокус: тестирование и доработка интерфейса, добавление дополнительной функциональности, например, экспорта/сохранения конфигурации.
